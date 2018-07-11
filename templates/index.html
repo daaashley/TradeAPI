@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+</head>
+<body>
+<h1>INDEX PAGE</h1>
+<h1>Hello {{ brokerData }}</h1>
+
+<a href={{ brokerData }} target="_blank">Broker Account</a>
+
+
+<a href="/confirm">Confirm</a>
+
+
+<script>
+        var receiveMessage = function(e) {
+                var data = JSON.parse(e.data);
+                var oAuthVerifier = data.oAuthVerifier;
+				document.getElementById("theData").value = oAuthVerifier;
+        };
+
+
+        if (window.addEventListener) {
+                addEventListener("message", receiveMessage, false);
+        } else {
+                attachEvent("onmessage", receiveMessage);
+				
+        }
+</script>
+
+<form action="/confirm" method="post">
+  AuthReturned: <input id="theData" type="text" name="auth"><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+</head>
+<body>
+<h1>INDEX PAGE</h1>
+
+
+<script>
+        var receiveMessage = function(e) {
+                var data = JSON.parse(e.data);
+                var oAuthVerifier = data.oAuthVerifier;
+        };
+
+
+        if (window.addEventListener) {
+                addEventListener("message", receiveMessage, false);
+        } else {
+                attachEvent("onmessage", receiveMessage);
+        }
+</script>
+
+
+</body>
+</html>
